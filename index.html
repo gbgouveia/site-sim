@@ -6,6 +6,10 @@
 <title>Quer voltar comigo?</title>
 
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
         height: 100vh;
@@ -17,19 +21,27 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        text-align: center;
+        padding: 20px;
     }
 
     h1 {
         color: white;
-        margin-bottom: 40px;
-        text-align: center;
+        font-size: clamp(24px, 5vw, 40px);
+        margin-bottom: 50px;
+    }
+
+    .botoes {
+        position: relative;
+        width: 100%;
+        height: 200px;
     }
 
     button {
         padding: 15px 30px;
         font-size: 18px;
         border: none;
-        border-radius: 10px;
+        border-radius: 12px;
         cursor: pointer;
         position: absolute;
         transition: 0.2s;
@@ -38,15 +50,15 @@
     #sim {
         background-color: #4CAF50;
         color: white;
-        left: 45%;
-        top: 60%;
+        left: 35%;
+        top: 50%;
     }
 
     #nao {
         background-color: #f44336;
         color: white;
         left: 55%;
-        top: 60%;
+        top: 50%;
     }
 
     button:hover {
@@ -59,8 +71,10 @@
 
 <h1>Quer voltar comigo? ❤️</h1>
 
-<button id="sim">Sim ❤️</button>
-<button id="nao">Não 😢</button>
+<div class="botoes">
+    <button id="sim">Sim ❤️</button>
+    <button id="nao">Não 😢</button>
+</div>
 
 <script>
     const botaoNao = document.getElementById("nao");

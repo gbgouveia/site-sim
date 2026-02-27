@@ -3,30 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ela disse SIM!</title>
+<title>Ela disse SIM ❤️</title>
 
 <style>
     body {
         margin: 0;
         height: 100vh;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(135deg, #4CAF50, #81C784);
-        font-family: Arial, sans-serif;
         text-align: center;
         color: white;
+        background: url("fundo.jpg") no-repeat center center/cover;
+        position: relative;
+    }
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+        z-index: 1;
     }
 
     h1 {
-        font-size: 40px;
+        font-size: clamp(28px, 6vw, 50px);
+        z-index: 2;
+    }
+
+    .coracao {
+        position: absolute;
+        bottom: -50px;
+        font-size: 24px;
+        animation: subir linear infinite;
+        color: pink;
+    }
+
+    @keyframes subir {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-110vh);
+            opacity: 0;
+        }
     }
 </style>
 </head>
 
 <body>
 
-<h1>Eu sabiaaa 😍❤️<br>Te amo!</h1>
+<div class="overlay"></div>
+
+<h1>Eu sabiaaaa 😍❤️</h1>
+
+<script>
+    function criarCoracao() {
+        const coracao = document.createElement("div");
+        coracao.classList.add("coracao");
+        coracao.innerHTML = "❤️";
+
+        coracao.style.left = Math.random() * 100 + "vw";
+        coracao.style.fontSize = (Math.random() * 20 + 20) + "px";
+        coracao.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+        document.body.appendChild(coracao);
+
+        setTimeout(() => {
+            coracao.remove();
+        }, 6000);
+    }
+
+    setInterval(criarCoracao, 300);
+</script>
 
 </body>
 </html>
