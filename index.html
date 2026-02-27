@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quer voltar comigo?</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1 {
+        color: white;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.2s;
+    }
+
+    #sim {
+        background-color: #4CAF50;
+        color: white;
+        left: 45%;
+        top: 60%;
+    }
+
+    #nao {
+        background-color: #f44336;
+        color: white;
+        left: 55%;
+        top: 60%;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Quer voltar comigo? ❤️</h1>
+
+<button id="sim">Sim ❤️</button>
+<button id="nao">Não 😢</button>
+
+<script>
+    const botaoNao = document.getElementById("nao");
+
+    botaoNao.addEventListener("click", function() {
+        const largura = window.innerWidth - botaoNao.offsetWidth;
+        const altura = window.innerHeight - botaoNao.offsetHeight;
+
+        const novaX = Math.random() * largura;
+        const novaY = Math.random() * altura;
+
+        botaoNao.style.left = novaX + "px";
+        botaoNao.style.top = novaY + "px";
+    });
+
+    document.getElementById("sim").addEventListener("click", function() {
+        window.location.href = "sim.html";
+    });
+</script>
+
+</body>
+</html>
